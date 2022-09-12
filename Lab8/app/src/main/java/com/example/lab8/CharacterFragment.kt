@@ -1,5 +1,6 @@
 package com.example.lab8
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -34,14 +35,16 @@ class CharacterFragment : Fragment(R.layout.fragment_character), PlaceAdapter.Pl
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = PlaceAdapter(characterList, this)
     }
-
+    @SuppressLint("NotifyDataSetChanged")
     private fun setListeners() {
         buttonSortAZ.setOnClickListener(){
             characterList.sortBy { place -> place.name }
+            recyclerView.adapter!!.notifyDataSetChanged()
         }
 
         buttonSortZA.setOnClickListener(){
             characterList.sortByDescending { place -> place.name }
+            recyclerView.adapter!!.notifyDataSetChanged()
         }
     }
 

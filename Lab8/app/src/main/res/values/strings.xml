@@ -5,4 +5,7 @@
     <string name="OrdenarZA">Ordenar de Z a A</string>
     <string name="ordenarAZ">Ordenar de A a Z</string>
     <string name="texto_ejemplo">TextoEjemplo</string>
+    <string name="species">Species:</string>
+    <string name="status">Status:</string>
+    <string name="gender">Gender:</string>
 </resources>

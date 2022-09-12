@@ -12,16 +12,14 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/item_recycler_place" />
 
     <Button
         android:id="@+id/bt_AZ"
         android:text="@string/ordenarAZ"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/margin_pequeño"
         android:layout_width="0dp"
         android:textAllCaps="false"
         android:layout_height="wrap_content"
@@ -36,7 +34,7 @@
         android:id="@+id/bt_ZA"
         android:text="@string/OrdenarZA"
         android:textAllCaps="false"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/margin_pequeño"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

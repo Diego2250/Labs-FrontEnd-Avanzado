@@ -1,5 +1,7 @@
 package com.example.lab8
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,11 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toolbar
 import androidx.navigation.fragment.navArgs
 import coil.load
 import coil.request.CachePolicy
 import coil.transform.CircleCropTransformation
 import com.example.lab8.R
+import com.google.android.material.appbar.MaterialToolbar
 
 class CharacterDetailFragment : Fragment(R.layout.fragment_character_detail) {
     private lateinit var imagen : ImageView
@@ -19,6 +23,7 @@ class CharacterDetailFragment : Fragment(R.layout.fragment_character_detail) {
     private lateinit var especie : TextView
     private lateinit var estatus : TextView
     private lateinit var genero : TextView
+    private lateinit var toolbar: MaterialToolbar
 
     private val args: CharacterDetailFragmentArgs by navArgs()
 
@@ -50,4 +55,5 @@ class CharacterDetailFragment : Fragment(R.layout.fragment_character_detail) {
             placeholder(R.drawable.ic_baseline_arrow_circle_down_24)
         }
     }
+
 }
