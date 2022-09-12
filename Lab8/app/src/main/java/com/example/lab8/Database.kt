@@ -83,7 +83,7 @@ object RickAndMortyDB {
             image = "https://rickandmortyapi.com/api/character/avatar/10.jpeg",
         ),
     )
-    
+
     fun getCharacters() = characters
 
 }

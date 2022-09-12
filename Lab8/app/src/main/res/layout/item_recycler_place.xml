@@ -10,7 +10,7 @@
     android:background="@color/white">
 
     <ImageView
-        android:id="@+id/imageView_recycleViewPlace"
+        android:id="@+id/imageView_recyclePlace"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,28 +20,28 @@
         tools:srcCompat="@tools:sample/avatars"/>
 
     <TextView
-        android:id="@+id/textView_recycleViewPlace_name"
+        android:id="@+id/textView_recyclePlace_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="EJEMPLO"
+        tools:text="@string/texto_ejemplo"
         android:layout_marginStart="16dp"
-        app:layout_constraintTop_toTopOf="@+id/imageView_recycleViewPlace"
-        app:layout_constraintStart_toEndOf="@id/imageView_recycleViewPlace"
-        app:layout_constraintBottom_toTopOf="@id/textView_recycleViewPlace_raceStatus"
+        app:layout_constraintTop_toTopOf="@+id/imageView_recyclePlace"
+        app:layout_constraintStart_toEndOf="@+id/imageView_recyclePlace"
+        app:layout_constraintBottom_toTopOf="@id/textView_recyclerPlace_Status"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="15sp"
         />
 
     <TextView
-        android:id="@+id/textView_recycleViewPlace_raceStatus"
-        tools:text="EJEMPLO2"
+        android:id="@+id/textView_recyclerPlace_Status"
+        tools:text="@string/texto_ejemplo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        app:layout_constraintTop_toBottomOf="@id/textView_recycleViewPlace_name"
-        app:layout_constraintBottom_toBottomOf="@id/imageView_recycleViewPlace"
-        app:layout_constraintStart_toEndOf="@id/imageView_recycleViewPlace"
+        app:layout_constraintTop_toBottomOf="@id/textView_recyclePlace_name"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_recyclePlace"
+        app:layout_constraintStart_toEndOf="@+id/imageView_recyclePlace"
         android:textColor="@color/black"
         />
 
