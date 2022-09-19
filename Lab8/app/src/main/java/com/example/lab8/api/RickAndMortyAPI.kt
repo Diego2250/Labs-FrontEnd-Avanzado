@@ -9,8 +9,8 @@ import com.example.lab8.model.Character
 interface RickAndMortyAPI {
 
     @GET("/api/character/")
-    fun getChaeacter():Call<AllAssetsResponse>
+    fun getCharacter():Call<AllAssetsResponse>
 
     @GET("/api/character/{id}")
-    fun getCharacter(@Path("id") id : String):Call<Character>
+    fun getOneCharacter(@Path("id") id : String):Call<Character>
 }

@@ -7,19 +7,18 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import coil.load
-import coil.request.CachePolicy
 import coil.transform.CircleCropTransformation
+import com.example.lab8.model.Resultado
 
 class PlaceAdapter(
-    private val dataSet : MutableList<Character>,
-    private val placeListener : PlaceListener
+    private val dataSet: List<Resultado>,
+    private val placeListener: PlaceListener
 ):
     RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
 
     interface PlaceListener {
-        fun onPlaceClicked(data: Character, position: Int)
+        fun onPlaceClicked(data: Resultado, position: Int)
     }
 
     class ViewHolder(
@@ -30,9 +29,9 @@ class PlaceAdapter(
         private val Name: TextView = view.findViewById(R.id.textView_recyclePlace_name)
         private val Status: TextView = view.findViewById(R.id.textView_recyclerPlace_Status)
         private val layout: ConstraintLayout = view.findViewById(R.id.layout_itemPlace)
-        private lateinit var place: Character
+        private lateinit var place: Resultado
 
-        fun setData(place : Character){
+        fun setData(place : Resultado){
             this.place = place
             Name.text = place.name
             (place.species + " - " + place.status).also { Status.text = it }

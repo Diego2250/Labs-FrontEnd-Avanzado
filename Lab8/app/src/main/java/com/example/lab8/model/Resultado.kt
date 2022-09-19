@@ -1,6 +1,6 @@
 package com.example.lab8.model
 
-data class Character(
+data class Resultado(
     val created: String,
     val gender: String,
     val image: String,
@@ -10,7 +10,7 @@ data class Character(
     val url: String,
     val name: String,
     val id: Int,
-    val origin: OriginCharacter,
-    val location: LocationCharacter,
+    val origin: Origin,
+    val location: Location,
     val episode: List<String>
 )

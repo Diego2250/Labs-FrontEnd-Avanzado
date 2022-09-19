@@ -3,20 +3,24 @@ package com.example.lab8
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
-import android.widget.LinearLayout
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.lab8.model.AllAssetsResponse
+import com.example.lab8.model.Resultado
+import com.example.lab8.api.RetrofitInstance
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CharacterFragment : Fragment(R.layout.fragment_character), PlaceAdapter.PlaceListener {
     private lateinit var recyclerView: RecyclerView
-    private lateinit var characterList : MutableList<Character>
+    private lateinit var characterList : MutableList<Resultado>
     private lateinit var buttonSortAZ : Button
     private lateinit var buttonSortZA : Button
+    private lateinit var APIcalllResult : MutableList<Resultado>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,11 +30,29 @@ class CharacterFragment : Fragment(R.layout.fragment_character), PlaceAdapter.Pl
         buttonSortZA = view.findViewById(R.id.bt_ZA)
 
         setListeners()
-        setRecycler()
+        setAPIrequiest()
+    }
+
+    private fun setAPIrequiest() {
+        RetrofitInstance.api.getCharacter().enqueue(object : Callback<AllAssetsResponse>{
+            override fun onResponse(
+                call: Call<AllAssetsResponse>,
+                response: Response<AllAssetsResponse>
+            ) {
+                if (response.isSuccessful && response.body()!=null){
+                    APIcalllResult = response.body()!!.results
+                    setRecycler()
+                }
+            }
+
+            override fun onFailure(call: Call<AllAssetsResponse>, t: Throwable) {
+                println("Ha ocurrido un error")
+            }
+        })
     }
 
     private fun setRecycler() {
-        characterList = RickAndMortyDB.getCharacters()
+        characterList = APIcalllResult
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = PlaceAdapter(characterList, this)
@@ -38,7 +60,7 @@ class CharacterFragment : Fragment(R.layout.fragment_character), PlaceAdapter.Pl
     @SuppressLint("NotifyDataSetChanged")
     private fun setListeners() {
         buttonSortAZ.setOnClickListener(){
-            characterList.sortBy { place -> place.name }
+            characterList.sortBy{ place -> place.name }
             recyclerView.adapter!!.notifyDataSetChanged()
         }
 
@@ -48,10 +70,10 @@ class CharacterFragment : Fragment(R.layout.fragment_character), PlaceAdapter.Pl
         }
     }
 
-    override fun onPlaceClicked(data: Character, position: Int) {
+    override fun onPlaceClicked(data: Resultado, position: Int) {
         requireView().findNavController().navigate(
             CharacterFragmentDirections.actionCharacterFragmentToCharacterDetailFragment(
-                data
+                characterID = data.id.toString()
             )
         )
     }
