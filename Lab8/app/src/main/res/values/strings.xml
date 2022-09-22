@@ -10,4 +10,8 @@
     <string name="gender">Gender:</string>
     <string name="origin">Origin:</string>
     <string name="episode_appearences">Episode Appearences</string>
+    <string name="ingresa_contrasena">Ingresa tu contraseña</string>
+    <string name="ingresa_correo">Ingresa tu correo</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="correo">mor21146@uvg.edu.gt</string>
 </resources>
