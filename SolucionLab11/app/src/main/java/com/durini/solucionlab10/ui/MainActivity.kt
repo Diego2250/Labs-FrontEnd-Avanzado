@@ -1,9 +1,11 @@
-package com.durini.solucionlab10.ui.activities
+package com.durini.solucionlab10.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.durini.solucionlab10.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
